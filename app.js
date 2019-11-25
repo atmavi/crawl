@@ -4,14 +4,6 @@ const   cheerio = require('cheerio'),
         app     = express();
 app.set("view engine", "ejs");
 
-// print 
-// const printJob = (job)=>{
-//     Object.keys(job).forEach(function (item) {
-//         console.log(`${item} : ${job[item]}`); 
-//     });
-//     console.log('\n');
-// }
-
 //extract 
 const getJobs = (jobsArray)=>{
     request('https://www.indeed.com.ph/mason-jobs', (err, res, html)=>{
@@ -32,14 +24,6 @@ const getJobs = (jobsArray)=>{
         }
     });
 }
-
-//print all
-// getJobs((jobs)=>{
-//     jobs.forEach(job =>printJob(job));
-// });
-
-console.log();
-
 
 app.get('/search/:job', (req, res)=>{
     res.render('search');
